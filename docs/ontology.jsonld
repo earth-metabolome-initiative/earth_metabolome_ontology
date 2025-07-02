@@ -8127,7 +8127,7 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2024-12-18"
+    "@value" : "2025-07-01"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
     "@id" : "https://www.earthmetabolome.org"
