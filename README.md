@@ -5,16 +5,16 @@ The latest and official version of the Earth Metabolome Initiative (EMI) ontolog
 
 To open and edit the ontology, it can be done  with a text editor or an ontology editor such as [Protege](https://protege.stanford.edu). 
 
-For more details, see the [EMI ontology documentation](https://www.dbgi.org/earth_metabolome_ontology/). The ontology documentation is fully generated with the [WIDOCO tool](https://github.com/dgarijo/Widoco). The WIDOCO-generated files are in the [docs](/docs) folder.
+For more details, see the [EMI ontology documentation](https://www.earthmetabolome.org/earth_metabolome_ontology/). The ontology documentation is fully generated with the [WIDOCO tool](https://github.com/dgarijo/Widoco). The WIDOCO-generated files are in the [docs](/docs) folder.
 
 
 ## Natural Product taxonomy
 The [`npc_taxonomy.ttl`](npc_taxonomy.ttl) file is an SKOS-based OWL ontology for the structural classification of natural products derived from the [NPClassifier tool](https://pubs.acs.org/doi/10.1021/acs.jnatprod.1c00399). This OWL ontology was generated with the script in [`scripts`](scripts/natural_product_taxonomy).
 
-For more details, see [Natural Product Classifier vocabulary](http://www.dbgi.org/earth_metabolome_ontology/docs-npc/index-en.html).
+For more details, see [Natural Product Classifier vocabulary](https://www.earthmetabolome.org/earth_metabolome_ontology/docs-npc/index-en.html).
 
 ## Example of a knowledge graph using the EMI ontology
-A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917) and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 413 million triples and is queryable with the SPARQL query editor [https://sib-swiss.github.io/sparql-editor/dbgi](https://sib-swiss.github.io/sparql-editor/dbgi) (soon available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi)). The SPARQL endpoint for programatic access is [https://biosoda.unil.ch/emi/sparql](https://biosoda.unil.ch/emi/sparql) (note that soon the stable URI will be  https://sparql.earthmetabolome.org). The RDF dump is available at https://zenodo.org/records/15211270. 
+A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917) and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 413 million triples and is queryable with the SPARQL query editor (soon available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi)). The SPARQL endpoint for programatic access is [https://biosoda.unil.ch/emi/sparql](https://biosoda.unil.ch/emi/sparql) (note that soon the stable URI will be  https://sparql.earthmetabolome.org). The RDF dump is available at https://zenodo.org/records/15211270. 
 
 # Tutorial to generate RDF triples based on the EMI ontology
 
