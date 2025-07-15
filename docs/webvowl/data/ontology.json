@@ -7,7 +7,7 @@
       "en" : "The Earth Metabolome Initiative (EMI) ontology"
     },
     "iri" : "https://w3id.org/emi",
-    "version" : "0.3",
+    "version" : "1.0",
     "author" : [ "https://orcid.org/0000-0002-3175-5372" ],
     "description" : {
       "en" : "The Earth Metabolome Initiative (EMI) ontology is designed to capture and structure the metabolic content of all currently known species on our planet."
@@ -16,7 +16,7 @@
       "image" : [ {
         "identifier" : "image",
         "language" : "undefined",
-        "value" : "http://www.dbgi.org/earth_metabolome_ontology/images/EMI-diagram.png",
+        "value" : "https://www.earthmetabolome.org/earth_metabolome_ontology/images/EMI-diagram.png",
         "type" : "iri"
       } ],
       "creator" : [ {
@@ -40,13 +40,13 @@
       "replaces" : [ {
         "identifier" : "replaces",
         "language" : "undefined",
-        "value" : "https://enpkg.commons-lab.org/kg/ontology_version/0.1.0",
+        "value" : "https://purl.org/emi/version/0.3",
         "type" : "iri"
       } ],
       "versionInfo" : [ {
         "identifier" : "versionInfo",
         "language" : "undefined",
-        "value" : "0.3",
+        "value" : "1.0",
         "type" : "label"
       } ],
       "abstract" : [ {
@@ -139,13 +139,13 @@
       "modified" : [ {
         "identifier" : "modified",
         "language" : "undefined",
-        "value" : "2024-12-18",
+        "value" : "2025-07-15",
         "type" : "label"
       } ],
       "logo" : [ {
         "identifier" : "logo",
         "language" : "undefined",
-        "value" : "https://www.dbgi.org/earth_metabolome_ontology/images/logo.png",
+        "value" : "https://www.earthmetabolome.org/earth_metabolome_ontology/images/logo.png",
         "type" : "iri"
       } ],
       "bibliographicCitation" : [ {
@@ -163,7 +163,7 @@
       "codeRepository" : [ {
         "identifier" : "codeRepository",
         "language" : "undefined",
-        "value" : "https://github.com/digital-botanical-gardens-initiative/earth_metabolome_ontology",
+        "value" : "https://github.com/earth-metabolome-initiative/earth_metabolome_ontology",
         "type" : "label"
       } ],
       "introduction" : [ {
