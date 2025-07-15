@@ -8088,7 +8088,7 @@
     "@value" : "The Earth Metabolome Initiative ontology is mainly designed as data schema to structure and describe natural product taxonomy, spectrum annotation provenance, sample and observation data, mass spectrometry data and analysis, and chemical structure representations. The EMI ontology replaces the [ENPKG vocabulary](https://enpkg.commons-lab.org/doc/index.html)."
   } ],
   "http://purl.org/dc/terms/bibliographicCitation" : [ {
-    "@value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 0.3. Retrieved from: https://w3id.org/emi/version/0.3"
+    "@value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 0.3. Retrieved from: https://w3id.org/emi/version/1.0"
   } ],
   "http://purl.org/dc/terms/contributor" : [ {
     "@id" : "https://orcid.org/0000-0001-9292-9463"
@@ -8127,13 +8127,13 @@
   } ],
   "http://purl.org/dc/terms/modified" : [ {
     "@type" : "http://www.w3.org/2001/XMLSchema#date",
-    "@value" : "2025-07-01"
+    "@value" : "2025-07-15"
   } ],
   "http://purl.org/dc/terms/publisher" : [ {
     "@id" : "https://www.earthmetabolome.org"
   } ],
   "http://purl.org/dc/terms/replaces" : [ {
-    "@id" : "https://enpkg.commons-lab.org/kg/ontology_version/0.1.0"
+    "@id" : "https://purl.org/emi/version/0.3"
   } ],
   "http://purl.org/dc/terms/title" : [ {
     "@language" : "en",
@@ -8174,10 +8174,10 @@
     "@id" : "https://w3id.org/emi/npc"
   } ],
   "http://www.w3.org/2002/07/owl#versionIRI" : [ {
-    "@id" : "https://w3id.org/emi/version/0.3"
+    "@id" : "https://w3id.org/emi/version/1.0"
   } ],
   "http://www.w3.org/2002/07/owl#versionInfo" : [ {
-    "@value" : "0.3"
+    "@value" : "1.0"
   } ],
   "http://xmlns.com/foaf/0.1/logo" : [ {
     "@id" : "https://www.earthmetabolome.org/earth_metabolome_ontology/images/logo.png"
