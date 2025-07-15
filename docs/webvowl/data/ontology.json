@@ -151,7 +151,7 @@
       "bibliographicCitation" : [ {
         "identifier" : "bibliographicCitation",
         "language" : "undefined",
-        "value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 1.0. Retrieved from: https://w3id.org/emi",
+        "value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 1.0. Retrieved from: https://w3id.org/emi/version/1.0",
         "type" : "label"
       } ],
       "preferredNamespaceUri" : [ {
