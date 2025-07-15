@@ -2,11 +2,11 @@
   "_comment" : "Created with OWL2VOWL (version 0.3.5), http://vowl.visualdataweb.org",
   "header" : {
     "languages" : [ "en", "undefined" ],
-    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "http://purl.uniprot.org/core", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/ns/sosa", "http://purl.org/dc/dcam", "https://purl.org/emi", "https://purl.org/npc", "http://www.w3.org/2003/01/geo/wgs84_pos", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://purl.org/dc/terms", "http://www.wikidata.org/entity", "http://org.semanticweb.owlapi/error", "http://xmlns.com/foaf/0.1", "http://www.w3.org/2006/time", "http://www.w3.org/2004/02/skos/core" ],
+    "baseIris" : [ "http://www.w3.org/1999/02/22-rdf-syntax-ns", "http://purl.org/vocommons/voaf", "http://purl.uniprot.org/core", "http://www.w3.org/2002/07/owl", "http://www.w3.org/2001/XMLSchema", "http://www.w3.org/ns/sosa", "http://purl.org/dc/dcam", "https://w3id.org/emi", "https://w3id.org/emi/npc", "http://www.w3.org/2003/01/geo/wgs84_pos", "http://www.w3.org/2000/01/rdf-schema", "http://www.w3.org/ns/prov", "http://purl.org/dc/terms", "http://www.wikidata.org/entity", "http://org.semanticweb.owlapi/error", "http://xmlns.com/foaf/0.1", "http://www.w3.org/2006/time", "http://www.w3.org/2004/02/skos/core" ],
     "title" : {
       "en" : "The Earth Metabolome Initiative (EMI) ontology"
     },
-    "iri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi",
     "version" : "0.3",
     "author" : [ "https://orcid.org/0000-0002-3175-5372" ],
     "description" : {
@@ -151,13 +151,13 @@
       "bibliographicCitation" : [ {
         "identifier" : "bibliographicCitation",
         "language" : "undefined",
-        "value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 0.3. Retrieved from: https://purl.org/emi/version/0.3",
+        "value" : "The Earth Metabolome Initiative Consortium. The Earth Metabolome Initiative (EMI) ontology. Revision: 1.0. Retrieved from: https://w3id.org/emi",
         "type" : "label"
       } ],
       "preferredNamespaceUri" : [ {
         "identifier" : "preferredNamespaceUri",
         "language" : "undefined",
-        "value" : "https://purl.org/emi#",
+        "value" : "https://w3id.org/emi#",
         "type" : "iri"
       } ],
       "codeRepository" : [ {
@@ -169,7 +169,7 @@
       "introduction" : [ {
         "identifier" : "introduction",
         "language" : "undefined",
-        "value" : "The Earth Metabolome Initiative (EMI) ontology replaces the Experimental Natural Products Knowledge Graph [(ENPKG) vocabulary]( https://enpkg.commons-lab.org/doc/index.html). The EMI ontology is used to structure spectrum annotation provenance by reusing the [PROV-O ontology](https://www.w3.org/TR/prov-o/) (a W3C recommendation) and sample and observation data by applying the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/). EMI reuses the SOSA ontology as a data schema for struturing the Sample and Observation data. SOSA (Sensor, Observation, Sample, and Actuator) is a subset of SSN (Semantic Sensor Network Ontology) that is a W3C recommendation. Although, the SSN was developed with ontology engineers in mind as the primary audience. They addressed changes in scope and audience that currently also includes scientific observations that may make heavy use of sampling strategies, and, therefore, the Sampling, Sampler, and Sample classes, as well as their corresponding properties, have been added to SOSA and SSN. Chemical taxonomy is also highly structure in EMI by relying on a taxonomy derived from NPClassifier (i.e., EMI imports [Natural Product Classifier vocabulary](https://purl.org/npc)). This taxonomy was defined for EMI with the [SKOS vocabulary](https://www.w3.org/TR/skos-reference). Indeed, it is an SKOS-based vocabulary for the structural classification of natural products. The skos:broder term is used to represent the hierarchy among Classes, Superclasses and Pathways.  npc:Class, npc:Superclass and npc:Pathway are subclasses of skos:Concept. rdfs:label is assigned for each term of the taxonomy that are instances of one of the subclasses of skos:Concept.\n\nSOSA reuse. We consider a Mass Spectrometer as a sosa:Platform. The MS detector that belongs to a Mass Spectrometer is a Sensor. If we do not want to capture the equipment (Mass Spectrometer for provenance) of the generated analysis such as by Liquid chromatography–mass spectrometry (LCMS), we can ignore/ommit it. The observation is interpreted as a prov:Activity/sosa:Observation/emi:Analysis (the Analysis as defined in the Earth Metabolome Intiative model). This observation (a.k.a. LCMS Analysis) uses (prov:use/sosa:hasFeatureOfInterest) some sample. This sample comes from some emi:System (e.g., species or another sample like a Raw Material, a broader specimen). All EMI model classes related to samples are subclasses of sosa:Sample, notably emi:Aliquot, emi:Blank, emi:ExtractSample, emi:RawMaterial and emi:QCSample.\n\nWe can classify each Specimen by using some Specimen taxonomy, for example, [specimenType](https://isamplesorg.github.io/models/generated/vocabularies/specimenType.html) that relies on SKOS. Moreover, we can also classify a sample with an external material taxonomy (e.g.,  [materialType](https://isamplesorg.github.io/models/generated/vocabularies/materialType.html#organicmaterial)). The raw material (emi:RawMaterial) is also a sosa:sample. In case it is needed to describe the \"Mass Spectrometer\" as a sampler too, we can apply the sosa:Sampler class to define it. The sampling process resuts on subsamples (e.g., emi:Aliquot). The extracted sample can be classified with an external taxonomy (e.g., an Specimen taxonomy) with the term emi:isClassifiedWith.\n\nOther metabolomics data are structured with specific EMI classes such as emi:ChemicalStrucutre for represeting molecules, emi:MS2Spectrum for the mass spectrometry (MS2 spectra), emi:LCMSFeatureSet that represents features obtained from the processing of a given LCMS analysis, please refer to classes and properties descriptions. ",
+        "value" : "The Earth Metabolome Initiative (EMI) ontology replaces the Experimental Natural Products Knowledge Graph [(ENPKG) vocabulary]( https://enpkg.commons-lab.org/doc/index.html). The EMI ontology is used to structure spectrum annotation provenance by reusing the [PROV-O ontology](https://www.w3.org/TR/prov-o/) (a W3C recommendation) and sample and observation data by applying the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/). EMI reuses the SOSA ontology as a data schema for struturing the Sample and Observation data. SOSA (Sensor, Observation, Sample, and Actuator) is a subset of SSN (Semantic Sensor Network Ontology) that is a W3C recommendation. Although, the SSN was developed with ontology engineers in mind as the primary audience. They addressed changes in scope and audience that currently also includes scientific observations that may make heavy use of sampling strategies, and, therefore, the Sampling, Sampler, and Sample classes, as well as their corresponding properties, have been added to SOSA and SSN. Chemical taxonomy is also highly structure in EMI by relying on a taxonomy derived from NPClassifier (i.e., EMI imports [Natural Product Classifier vocabulary](https://w3id.org/emi/npc)). This taxonomy was defined for EMI with the [SKOS vocabulary](https://www.w3.org/TR/skos-reference). Indeed, it is an SKOS-based vocabulary for the structural classification of natural products. The skos:broder term is used to represent the hierarchy among Classes, Superclasses and Pathways.  npc:Class, npc:Superclass and npc:Pathway are subclasses of skos:Concept. rdfs:label is assigned for each term of the taxonomy that are instances of one of the subclasses of skos:Concept.\n\nSOSA reuse. We consider a Mass Spectrometer as a sosa:Platform. The MS detector that belongs to a Mass Spectrometer is a Sensor. If we do not want to capture the equipment (Mass Spectrometer for provenance) of the generated analysis such as by Liquid chromatography–mass spectrometry (LCMS), we can ignore/ommit it. The observation is interpreted as a prov:Activity/sosa:Observation/emi:Analysis (the Analysis as defined in the Earth Metabolome Intiative model). This observation (a.k.a. LCMS Analysis) uses (prov:use/sosa:hasFeatureOfInterest) some sample. This sample comes from some emi:System (e.g., species or another sample like a Raw Material, a broader specimen). All EMI model classes related to samples are subclasses of sosa:Sample, notably emi:Aliquot, emi:Blank, emi:ExtractSample, emi:RawMaterial and emi:QCSample.\n\nWe can classify each Specimen by using some Specimen taxonomy, for example, [specimenType](https://isamplesorg.github.io/models/generated/vocabularies/specimenType.html) that relies on SKOS. Moreover, we can also classify a sample with an external material taxonomy (e.g.,  [materialType](https://isamplesorg.github.io/models/generated/vocabularies/materialType.html#organicmaterial)). The raw material (emi:RawMaterial) is also a sosa:sample. In case it is needed to describe the \"Mass Spectrometer\" as a sampler too, we can apply the sosa:Sampler class to define it. The sampling process resuts on subsamples (e.g., emi:Aliquot). The extracted sample can be classified with an external taxonomy (e.g., an Specimen taxonomy) with the term emi:isClassifiedWith.\n\nOther metabolomics data are structured with specific EMI classes such as emi:ChemicalStrucutre for represeting molecules, emi:MS2Spectrum for the mass spectrometry (MS2 spectra), emi:LCMSFeatureSet that represents features obtained from the processing of a given LCMS analysis, please refer to classes and properties descriptions. ",
         "type" : "label"
       } ],
       "status" : [ {
@@ -831,8 +831,8 @@
     "type" : "owl:Class"
   } ],
   "classAttribute" : [ {
-    "iri" : "https://purl.org/emi#System",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#System",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "System",
@@ -1006,8 +1006,8 @@
     "attributes" : [ "external" ],
     "id" : "59"
   }, {
-    "iri" : "https://purl.org/emi#GNPSConsensusSpectrum",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#GNPSConsensusSpectrum",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "GNPSConsensusSpectrum",
@@ -1019,8 +1019,8 @@
     "id" : "18",
     "superClasses" : [ "19" ]
   }, {
-    "iri" : "https://purl.org/emi#LFpair",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LFpair",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "LFpair",
@@ -1131,8 +1131,8 @@
     "attributes" : [ "external" ],
     "id" : "102"
   }, {
-    "iri" : "https://purl.org/emi#ContinousTrait",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ContinousTrait",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ContinousTrait",
@@ -1179,8 +1179,8 @@
     "attributes" : [ "external" ],
     "id" : "64"
   }, {
-    "iri" : "https://purl.org/emi#DevelopmentalStage",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#DevelopmentalStage",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "DevelopmentalStage",
@@ -1837,14 +1837,14 @@
     "attributes" : [ "external" ],
     "id" : "73"
   }, {
-    "iri" : "https://purl.org/emi#InteractionType",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#InteractionType",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix obo: <http://purl.obolibrary.org/obo/> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:INTERACTION-1 a emi:Interaction ;\n    emi:isClassifiedWith obo:RO_0002557 . #has pathogen\nobo:RO_0002557 a emi:InteractionType .",
+        "value" : "@prefix obo: <http://purl.obolibrary.org/obo/> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:INTERACTION-1 a emi:Interaction ;\n    emi:isClassifiedWith obo:RO_0002557 . #has pathogen\nobo:RO_0002557 a emi:InteractionType .",
         "type" : "label"
       } ]
     },
@@ -1962,8 +1962,8 @@
     "attributes" : [ "union", "anonymous" ],
     "id" : "236"
   }, {
-    "iri" : "https://purl.org/emi#Aliquot",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Aliquot",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Aliquot",
@@ -2446,14 +2446,14 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "https://purl.org/emi#MS2Spectrum",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#MS2Spectrum",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:MS2Spectrum .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:MS2Spectrum .",
         "type" : "label"
       } ]
     },
@@ -2467,8 +2467,8 @@
     },
     "id" : "19"
   }, {
-    "iri" : "https://purl.org/emi#AnatomicalEntity",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#AnatomicalEntity",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "AnatomicalEntity",
@@ -2900,8 +2900,8 @@
       "IRI-based" : "double"
     }
   }, {
-    "iri" : "https://purl.org/emi#PhysiologicalStage",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#PhysiologicalStage",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "PhysiologicalStage",
@@ -2912,14 +2912,14 @@
     },
     "id" : "301"
   }, {
-    "iri" : "https://purl.org/emi#LCMSFeatureSet",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LCMSFeatureSet",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet .",
         "type" : "label"
       } ]
     },
@@ -3025,14 +3025,14 @@
     "id" : "192",
     "superClasses" : [ "174" ]
   }, {
-    "iri" : "https://purl.org/emi#Analysis",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Analysis",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:Analysis .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:Analysis .",
         "type" : "label"
       } ]
     },
@@ -3046,8 +3046,8 @@
     "id" : "24",
     "superClasses" : [ "202" ]
   }, {
-    "iri" : "https://purl.org/emi#StructuralAnnotation",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#StructuralAnnotation",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "StructuralAnnotation",
@@ -3865,14 +3865,14 @@
       "IRI-based" : "double"
     }
   }, {
-    "iri" : "https://purl.org/emi#Blank",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Blank",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF138_A12 rdf:type emi:Blank ;\n            dcterms:identifier \"VGF138_A12\" .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A12 rdf:type emi:Blank ;\n            dcterms:identifier \"VGF138_A12\" .",
         "type" : "label"
       } ]
     },
@@ -4136,8 +4136,8 @@
     "attributes" : [ "external" ],
     "id" : "339"
   }, {
-    "iri" : "https://purl.org/emi#ChemicalEntity",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ChemicalEntity",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ChemicalEntity",
@@ -4149,8 +4149,8 @@
     },
     "id" : "225"
   }, {
-    "iri" : "https://purl.org/emi#ComputationalAnalysis",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ComputationalAnalysis",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ComputationalAnalysis",
@@ -4264,8 +4264,8 @@
       "IRI-based" : "string"
     }
   }, {
-    "iri" : "https://purl.org/emi#BioAssayResults",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#BioAssayResults",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "BioAssayResults",
@@ -4276,14 +4276,14 @@
     },
     "id" : "347"
   }, {
-    "iri" : "https://purl.org/emi#LCMSFeature",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LCMSFeature",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature .",
         "type" : "label"
       } ]
     },
@@ -4517,7 +4517,7 @@
       }, {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n:VGF138_A02_neg.mzXML rdf:type sosa:Observation .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n:VGF138_A02_neg.mzXML rdf:type sosa:Observation .",
         "type" : "label"
       }, {
         "identifier" : "example",
@@ -4537,8 +4537,8 @@
     "attributes" : [ "external" ],
     "id" : "202"
   }, {
-    "iri" : "https://purl.org/emi#LCMSAnalysisNeg",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LCMSAnalysisNeg",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "hasIonization" : [ {
@@ -4550,7 +4550,7 @@
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysisNeg .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysisNeg .",
         "type" : "label"
       } ]
     },
@@ -4564,14 +4564,14 @@
     "id" : "206",
     "superClasses" : [ "28" ]
   }, {
-    "iri" : "https://purl.org/emi#LCMSAnalysis",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LCMSAnalysis",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis .",
         "type" : "label"
       } ]
     },
@@ -4990,8 +4990,8 @@
     "id" : "174",
     "superClasses" : [ "54" ]
   }, {
-    "iri" : "https://purl.org/emi#FBMNComponent",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#FBMNComponent",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "FBMNComponent",
@@ -5024,8 +5024,8 @@
     "id" : "160",
     "superClasses" : [ "70" ]
   }, {
-    "iri" : "https://purl.org/emi#ChemicalTaxon",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ChemicalTaxon",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ChemicalTaxon",
@@ -5163,8 +5163,8 @@
     "id" : "214",
     "superClasses" : [ "54", "127" ]
   }, {
-    "iri" : "https://purl.org/emi#SpectralPair",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#SpectralPair",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "SpectralPair",
@@ -5176,14 +5176,14 @@
     },
     "id" : "83"
   }, {
-    "iri" : "https://purl.org/emi#ChemicalTaxonAnnotation",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ChemicalTaxonAnnotation",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation .",
         "type" : "label"
       } ]
     },
@@ -5280,8 +5280,8 @@
     "attributes" : [ "external" ],
     "id" : "100"
   }, {
-    "iri" : "https://purl.org/emi#Locality",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Locality",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Locality"
@@ -5311,14 +5311,14 @@
     "id" : "70",
     "superClasses" : [ "67" ]
   }, {
-    "iri" : "https://purl.org/emi#Chemical",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Chemical",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix dcterms: < http://purl.org/dc/terms/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n            dcterms:identifier \"Q27145340\" ;\n            emi:hasInChIKey :ZCCLDKGWJIREQF-PDBXOOCHSA-N ;\n            rdfs:label \"ZCCLDKGWJIREQF-PDBXOOCHSA-N\" .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix dcterms: < http://purl.org/dc/terms/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n            dcterms:identifier \"Q27145340\" ;\n            emi:hasInChIKey :ZCCLDKGWJIREQF-PDBXOOCHSA-N ;\n            rdfs:label \"ZCCLDKGWJIREQF-PDBXOOCHSA-N\" .",
         "type" : "label"
       } ]
     },
@@ -5333,8 +5333,8 @@
     "id" : "165",
     "superClasses" : [ "225" ]
   }, {
-    "iri" : "https://purl.org/emi#InformationSource",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#InformationSource",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "note" : [ {
@@ -5353,14 +5353,14 @@
     },
     "id" : "269"
   }, {
-    "iri" : "https://purl.org/emi#SpectrumAnnotation",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#SpectrumAnnotation",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:SpectrumAnnotation .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:SpectrumAnnotation .",
         "type" : "label"
       } ]
     },
@@ -5374,8 +5374,8 @@
     },
     "id" : "143"
   }, {
-    "iri" : "https://purl.org/emi#BiologicalSex",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#BiologicalSex",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "BiologicalSex",
@@ -5434,8 +5434,8 @@
     "attributes" : [ "external" ],
     "id" : "405"
   }, {
-    "iri" : "https://purl.org/emi#BioassayAnalysis",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#BioassayAnalysis",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "isDefinedBy" : [ {
@@ -5569,14 +5569,14 @@
     "attributes" : [ "external" ],
     "id" : "146"
   }, {
-    "iri" : "https://purl.org/emi#NonTrait",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#NonTrait",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:EXAMPLE-NON-TRAIT rdf:type emi:NonTrait ;\n    rdf:value  12.4",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:EXAMPLE-NON-TRAIT rdf:type emi:NonTrait ;\n    rdf:value  12.4",
         "type" : "label"
       } ]
     },
@@ -5589,8 +5589,8 @@
     "id" : "4",
     "superClasses" : [ "5" ]
   }, {
-    "iri" : "https://purl.org/emi#Habitat",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Habitat",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Habitat",
@@ -5693,8 +5693,8 @@
     "id" : "79",
     "superClasses" : [ "33" ]
   }, {
-    "iri" : "https://purl.org/emi#OrganismGroup",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#OrganismGroup",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "altLabel" : [ {
@@ -5723,8 +5723,8 @@
     },
     "id" : "243"
   }, {
-    "iri" : "https://purl.org/emi#CSpair",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#CSpair",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "CSpair",
@@ -5845,8 +5845,8 @@
     "attributes" : [ "external" ],
     "id" : "412"
   }, {
-    "iri" : "https://purl.org/emi#Spec2VecDoc",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Spec2VecDoc",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Spec2VecDoc",
@@ -5857,8 +5857,8 @@
     },
     "id" : "308"
   }, {
-    "iri" : "https://purl.org/emi#WDChemicalStructure",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#WDChemicalStructure",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "WDChemicalStructure",
@@ -5870,8 +5870,8 @@
     "id" : "164",
     "superClasses" : [ "165" ]
   }, {
-    "iri" : "https://purl.org/emi#QCSample",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#QCSample",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "QCSample",
@@ -6102,14 +6102,14 @@
     "id" : "209",
     "superClasses" : [ "127", "1" ]
   }, {
-    "iri" : "https://purl.org/emi#DiscreteTrait",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#DiscreteTrait",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix qudt: <http://qudt.org/schema/qudt/> .\n@prefix unit: <http://qudt.org/vocab/unit/> .\n:flower-color rdf:value  red ;\n              qudt:hasUnit unit:X .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix qudt: <http://qudt.org/schema/qudt/> .\n@prefix unit: <http://qudt.org/vocab/unit/> .\n:flower-color rdf:value  red ;\n              qudt:hasUnit unit:X .",
         "type" : "label"
       } ]
     },
@@ -6525,8 +6525,8 @@
     "attributes" : [ "external" ],
     "id" : "426"
   }, {
-    "iri" : "https://purl.org/emi#ExtractSample",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ExtractSample",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ExtractSample",
@@ -6618,8 +6618,8 @@
     "attributes" : [ "external" ],
     "id" : "430"
   }, {
-    "iri" : "https://purl.org/emi#LCMSAnalysisPos",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#LCMSAnalysisPos",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "hasIonization" : [ {
@@ -6631,7 +6631,7 @@
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:VGF138_A02_pos.mzXML rdf:type emi:LCMSAnalysisPos .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A02_pos.mzXML rdf:type emi:LCMSAnalysisPos .",
         "type" : "label"
       } ]
     },
@@ -6714,8 +6714,8 @@
     "id" : "77",
     "superClasses" : [ "33" ]
   }, {
-    "iri" : "https://purl.org/emi#Trait",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Trait",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Trait",
@@ -7111,8 +7111,8 @@
     "id" : "108",
     "superClasses" : [ "52" ]
   }, {
-    "iri" : "https://purl.org/emi#InChIKey2D",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#InChIKey2D",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "InChIKey2D",
@@ -7124,8 +7124,8 @@
     "id" : "137",
     "superClasses" : [ "224" ]
   }, {
-    "iri" : "https://purl.org/emi#RawMaterial",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#RawMaterial",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "RawMaterial",
@@ -12055,8 +12055,8 @@
     "attributes" : [ "external" ],
     "id" : "457"
   }, {
-    "iri" : "https://purl.org/emi#ChemicalStructure",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#ChemicalStructure",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "ChemicalStructure",
@@ -12069,8 +12069,8 @@
     "id" : "224",
     "superClasses" : [ "225" ]
   }, {
-    "iri" : "https://purl.org/emi#InChIKey",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#InChIKey",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "InChIKey",
@@ -12192,8 +12192,8 @@
     "attributes" : [ "external" ],
     "id" : "472"
   }, {
-    "iri" : "https://purl.org/emi#Interaction",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Interaction",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Interaction",
@@ -12205,8 +12205,8 @@
     "id" : "72",
     "superClasses" : [ "73" ]
   }, {
-    "iri" : "https://purl.org/emi#Organism",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Organism",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "annotations" : {
       "altLabel" : [ {
@@ -12232,8 +12232,8 @@
     "id" : "39",
     "superClasses" : [ "38" ]
   }, {
-    "iri" : "https://purl.org/emi#Taxon",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#Taxon",
+    "baseIri" : "https://w3id.org/emi",
     "instances" : 0,
     "label" : {
       "IRI-based" : "Taxon",
@@ -13208,8 +13208,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "8"
   }, {
-    "iri" : "https://purl.org/emi#hasIonization",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasIonization",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "16",
     "label" : {
       "IRI-based" : "hasIonization"
@@ -13387,14 +13387,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "32"
   }, {
-    "iri" : "https://purl.org/emi#hasMassiveDOI",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasMassiveDOI",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "37",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasMassiveDOI <https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?accession=MSV000087728> .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasMassiveDOI <https://massive.ucsd.edu/ProteoSAFe/dataset.jsp?accession=MSV000087728> .",
         "type" : "label"
       } ]
     },
@@ -13685,8 +13685,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "85"
   }, {
-    "iri" : "https://purl.org/emi#inTaxon",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#inTaxon",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "90",
     "label" : {
       "IRI-based" : "inTaxon",
@@ -14164,8 +14164,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "121"
   }, {
-    "iri" : "https://purl.org/emi#hasAnatomicalEntity",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasAnatomicalEntity",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "125",
     "label" : {
       "IRI-based" : "hasAnatomicalEntity",
@@ -14430,15 +14430,15 @@
     "attributes" : [ "external", "object" ],
     "id" : "134"
   }, {
-    "iri" : "https://purl.org/emi#hasInChIKey2D",
+    "iri" : "https://w3id.org/emi#hasInChIKey2D",
     "inverse" : "138",
-    "baseIri" : "https://purl.org/emi",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "137",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N  rdf:type emi:InChIKey ;\n            emi:hasInChIKey2D :ZCCLDKGWJIREQF .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N  rdf:type emi:InChIKey ;\n            emi:hasInChIKey2D :ZCCLDKGWJIREQF .",
         "type" : "label"
       } ]
     },
@@ -14697,8 +14697,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "178"
   }, {
-    "iri" : "https://purl.org/emi#scientificName",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#scientificName",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "182",
     "label" : {
       "IRI-based" : "scientificName",
@@ -14821,8 +14821,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "193"
   }, {
-    "iri" : "https://purl.org/emi#hasPairMember",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasPairMember",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "19",
     "label" : {
       "IRI-based" : "hasPairMember",
@@ -14836,8 +14836,8 @@
     "attributes" : [ "object" ],
     "id" : "194"
   }, {
-    "iri" : "https://purl.org/emi#hasConsistencyScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasConsistencyScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "198",
     "label" : {
       "IRI-based" : "hasConsistencyScore",
@@ -14900,8 +14900,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "215"
   }, {
-    "iri" : "https://purl.org/emi#componentLink",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#componentLink",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "217",
     "label" : {
       "IRI-based" : "componentLink",
@@ -15047,14 +15047,14 @@
     "attributes" : [ "external", "object", "functional" ],
     "id" : "220"
   }, {
-    "iri" : "https://purl.org/emi#isInChIKey2DOf",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#isInChIKey2DOf",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "136",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey2D ;\n            emi:isInChIKey2DOf :ZCCLDKGWJIREQF ;\n            rdfs:label \"ZCCLDKGWJIREQF\" .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey. ",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey2D ;\n            emi:isInChIKey2DOf :ZCCLDKGWJIREQF ;\n            rdfs:label \"ZCCLDKGWJIREQF\" .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey. ",
         "type" : "label"
       } ]
     },
@@ -15329,8 +15329,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "232"
   }, {
-    "iri" : "https://purl.org/emi#spectrumLink",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#spectrumLink",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "234",
     "label" : {
       "IRI-based" : "spectrumLink",
@@ -15505,8 +15505,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "237"
   }, {
-    "iri" : "https://purl.org/emi#hasTaxoScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasTaxoScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "245",
     "label" : {
       "IRI-based" : "hasTaxoScore",
@@ -15580,14 +15580,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "248"
   }, {
-    "iri" : "https://purl.org/emi#hasLCMSFeature",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasLCMSFeature",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "21",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet ;\n            emi:hasLCMSFeature usi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A1 .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet ;\n            emi:hasLCMSFeature usi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A1 .",
         "type" : "label"
       } ]
     },
@@ -15685,14 +15685,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "255"
   }, {
-    "iri" : "https://purl.org/emi#hasClassProbability",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasClassProbability",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "259",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasClassProbability \"0.6451306343078613\"^^xsd:double .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasClassProbability \"0.6451306343078613\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -15769,8 +15769,8 @@
     "attributes" : [ "external", "someValues", "object" ],
     "id" : "262"
   }, {
-    "iri" : "https://purl.org/emi#hasChemicalStructure",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasChemicalStructure",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "137",
     "label" : {
       "IRI-based" : "hasChemicalStructure",
@@ -15849,14 +15849,14 @@
     "attributes" : [ "external", "someValues", "object" ],
     "id" : "265"
   }, {
-    "iri" : "https://purl.org/emi#isInChIKey2DOf",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#isInChIKey2DOf",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "136",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey2D ;\n            emi:isInChIKey2DOf :ZCCLDKGWJIREQF ;\n            rdfs:label \"ZCCLDKGWJIREQF\" .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey. ",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey2D ;\n            emi:isInChIKey2DOf :ZCCLDKGWJIREQF ;\n            rdfs:label \"ZCCLDKGWJIREQF\" .\n:ZCCLDKGWJIREQF-PDBXOOCHSA-N rdf:type emi:InChIKey. ",
         "type" : "label"
       } ]
     },
@@ -16174,8 +16174,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "273"
   }, {
-    "iri" : "https://purl.org/emi#hasAnnotation",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasAnnotation",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "143",
     "label" : {
       "IRI-based" : "hasAnnotation",
@@ -16185,14 +16185,14 @@
     "attributes" : [ "object" ],
     "id" : "274"
   }, {
-    "iri" : "https://purl.org/emi#hasRowId",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasRowId",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "276",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRowId \"356\"^^xsd:integer .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRowId \"356\"^^xsd:integer .",
         "type" : "label"
       } ]
     },
@@ -16267,8 +16267,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "283"
   }, {
-    "iri" : "https://purl.org/emi#inChIKey2D",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#inChIKey2D",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "285",
     "label" : {
       "IRI-based" : "inChIKey2D",
@@ -16863,14 +16863,14 @@
     "attributes" : [ "external", "object", "transitive" ],
     "id" : "11"
   }, {
-    "iri" : "https://purl.org/emi#hasSpec2VecValue",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpec2VecValue",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "296",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecValue \"271.02\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecValue \"271.02\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -16885,14 +16885,14 @@
     "attributes" : [ "datatype" ],
     "id" : "309"
   }, {
-    "iri" : "https://purl.org/emi#hasRetentionTime",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasRetentionTime",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "310",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRetentionTime \"7.663716666666667\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRetentionTime \"7.663716666666667\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -17020,8 +17020,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "35"
   }, {
-    "iri" : "https://purl.org/emi#hasTarget",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasTarget",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "124",
     "label" : {
       "IRI-based" : "hasTarget",
@@ -17034,14 +17034,14 @@
     "attributes" : [ "object" ],
     "id" : "320"
   }, {
-    "iri" : "https://purl.org/emi#hasGNPSLCMSLink",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasGNPSLCMSLink",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "322",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasGNPSLCMSLink \"https://dashboard.gnps2.org/?usi=mzspec%3AMSV000087728%3AVGF138_A02_neg.mzXML\"^^xsd:anyURI .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasGNPSLCMSLink \"https://dashboard.gnps2.org/?usi=mzspec%3AMSV000087728%3AVGF138_A02_neg.mzXML\"^^xsd:anyURI .",
         "type" : "label"
       } ]
     },
@@ -17199,14 +17199,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "323"
   }, {
-    "iri" : "https://purl.org/emi#hasFeatureArea",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasFeatureArea",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "325",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasFeatureArea \"1180836.665658199\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasFeatureArea \"1180836.665658199\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -17271,14 +17271,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "13"
   }, {
-    "iri" : "https://purl.org/emi#hasLCMSFeatureSet",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasLCMSFeatureSet",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "253",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasLCMSFeatureSet :VGF153_A02_lcms_feature_list_neg .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n:VGF138_A02_neg.mzXML rdf:type emi:LCMSAnalysis ;\n            emi:hasLCMSFeatureSet :VGF153_A02_lcms_feature_list_neg .",
         "type" : "label"
       } ]
     },
@@ -17509,14 +17509,14 @@
       "undefined" : "is a"
     }
   }, {
-    "iri" : "https://purl.org/emi#hasRawSpectrum",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasRawSpectrum",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "317",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRawSpectrum \"((58.7747, 0.034375), (107.3847, 0.0453125), (177.2855, 0.0375), (185.9186, 0.0375), (243.0295, 0.484375), (257.0457, 0.21875), (270.0167, 0.0765625), (271.0244, 0.4375), (285.0398, 0.359375), (300.028, 0.15625), (313.0341, 0.171875), (314.0425, 1.0), (315.0507, 0.640625), (551.4942, 0.0453125), (619.0516, 0.0375), (675.5888, 0.0421875))\" .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRawSpectrum \"((58.7747, 0.034375), (107.3847, 0.0453125), (177.2855, 0.0375), (185.9186, 0.0375), (243.0295, 0.484375), (257.0457, 0.21875), (270.0167, 0.0765625), (271.0244, 0.4375), (285.0398, 0.359375), (300.028, 0.15625), (313.0341, 0.171875), (314.0425, 1.0), (315.0507, 0.640625), (551.4942, 0.0453125), (619.0516, 0.0375), (675.5888, 0.0421875))\" .",
         "type" : "label"
       } ]
     },
@@ -17800,15 +17800,15 @@
     "attributes" : [ "external", "object" ],
     "id" : "359"
   }, {
-    "iri" : "https://purl.org/emi#hasInChIKey",
+    "iri" : "https://w3id.org/emi#hasInChIKey",
     "inverse" : "360",
-    "baseIri" : "https://purl.org/emi",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "136",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n            dcterms:identifier \"Q27145340\" ;\n            emi:hasInChIKey :ZCCLDKGWJIREQF-PDBXOOCHSA-N .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n            dcterms:identifier \"Q27145340\" ;\n            emi:hasInChIKey :ZCCLDKGWJIREQF-PDBXOOCHSA-N .",
         "type" : "label"
       } ]
     },
@@ -17989,8 +17989,8 @@
     "attributes" : [ "external", "object", "symmetric" ],
     "id" : "12"
   }, {
-    "iri" : "https://purl.org/emi#hasConsensusSpectrum",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasConsensusSpectrum",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "18",
     "label" : {
       "IRI-based" : "hasConsensusSpectrum",
@@ -18001,14 +18001,14 @@
     "attributes" : [ "object", "functional" ],
     "id" : "362"
   }, {
-    "iri" : "https://purl.org/emi#hasSuperClass",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSuperClass",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "151",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasSuperClass npc:SESQUITERPENOIDS .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasSuperClass npc:SESQUITERPENOIDS .",
         "type" : "label"
       } ]
     },
@@ -18379,8 +18379,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "375"
   }, {
-    "iri" : "https://purl.org/emi#hasSMILES",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSMILES",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "312",
     "label" : {
       "IRI-based" : "hasSMILES",
@@ -18543,8 +18543,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "378"
   }, {
-    "iri" : "https://purl.org/emi#hasDevelopmentalStage",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasDevelopmentalStage",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "109",
     "label" : {
       "IRI-based" : "hasDevelopmentalStage",
@@ -18557,14 +18557,14 @@
     "attributes" : [ "object" ],
     "id" : "379"
   }, {
-    "iri" : "https://purl.org/emi#hasClass",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasClass",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "148",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasClass \"npc:CADINANE_SESQUITERPENOIDS\" .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasClass \"npc:CADINANE_SESQUITERPENOIDS\" .",
         "type" : "label"
       } ]
     },
@@ -18577,8 +18577,8 @@
     "attributes" : [ "object" ],
     "id" : "380"
   }, {
-    "iri" : "https://purl.org/emi#hasSource",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSource",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "124",
     "label" : {
       "IRI-based" : "hasSource",
@@ -18591,14 +18591,14 @@
     "attributes" : [ "object" ],
     "id" : "382"
   }, {
-    "iri" : "https://purl.org/emi#hasSpec2VecPeak",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpec2VecPeak",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "298",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecPeak \"271.02\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecPeak \"271.02\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -18898,14 +18898,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "351"
   }, {
-    "iri" : "https://purl.org/emi#hasSpectrum",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpectrum",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "19",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet ;\n            emi:hasSpectrum usi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A1 .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet ;\n            emi:hasSpectrum usi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A1 .",
         "type" : "label"
       } ]
     },
@@ -18921,14 +18921,14 @@
     "attributes" : [ "object" ],
     "id" : "254"
   }, {
-    "iri" : "https://purl.org/emi#hasProbability",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasProbability",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "318",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasProbability \"0.5601769685745239\"^^xsd:double .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasProbability \"0.5601769685745239\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -18940,8 +18940,8 @@
     "attributes" : [ "datatype" ],
     "id" : "386"
   }, {
-    "iri" : "https://purl.org/emi#hasChemicalStructure",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasChemicalStructure",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "224",
     "label" : {
       "IRI-based" : "hasChemicalStructure",
@@ -18954,14 +18954,14 @@
     "attributes" : [ "object" ],
     "id" : "387"
   }, {
-    "iri" : "https://purl.org/emi#isInChIKeyOf",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#isInChIKeyOf",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "229",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix dcterms: < http://purl.org/dc/terms/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n             dcterms:identifier \"Q27145340\" .\n :ZCCLDKGWJIREQF-PDBXOOCHSA-N  emi:isInChIKeyOf wd:Q27145340 . ",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix wd: <http://www.wikidata.org/entity/> .\n@prefix dcterms: < http://purl.org/dc/terms/> .\nwd:Q27145340 rdf:type emi:Chemical ;\n             dcterms:identifier \"Q27145340\" .\n :ZCCLDKGWJIREQF-PDBXOOCHSA-N  emi:isInChIKeyOf wd:Q27145340 . ",
         "type" : "label"
       } ]
     },
@@ -18973,14 +18973,14 @@
     "attributes" : [ "object" ],
     "id" : "360"
   }, {
-    "iri" : "https://purl.org/emi#isClassifiedWith",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#isClassifiedWith",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "30",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:isClassifiedWith npc:CADINANE_SESQUITERPENOIDS .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:isClassifiedWith npc:CADINANE_SESQUITERPENOIDS .",
         "type" : "label"
       } ]
     },
@@ -19158,14 +19158,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "390"
   }, {
-    "iri" : "https://purl.org/emi#hasSpec2VecDoc",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpec2VecDoc",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "308",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasSpec2VecDoc :spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasSpec2VecDoc :spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 .",
         "type" : "label"
       } ]
     },
@@ -19275,8 +19275,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "349"
   }, {
-    "iri" : "https://purl.org/emi#hasCosmicScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasCosmicScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "330",
     "label" : {
       "IRI-based" : "hasCosmicScore",
@@ -19311,8 +19311,8 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "394"
   }, {
-    "iri" : "https://purl.org/emi#hasZodiacScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasZodiacScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "357",
     "label" : {
       "IRI-based" : "hasZodiacScore",
@@ -19322,8 +19322,8 @@
     "attributes" : [ "datatype" ],
     "id" : "395"
   }, {
-    "iri" : "https://purl.org/emi#hasCosine",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasCosine",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "328",
     "label" : {
       "IRI-based" : "hasCosine",
@@ -19333,8 +19333,8 @@
     "attributes" : [ "datatype", "functional" ],
     "id" : "396"
   }, {
-    "iri" : "https://purl.org/emi#hasFinalScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasFinalScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "326",
     "label" : {
       "IRI-based" : "hasFinalScore",
@@ -19800,8 +19800,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "353"
   }, {
-    "iri" : "https://purl.org/emi#hasHabitat",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasHabitat",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "407",
     "label" : {
       "IRI-based" : "hasHabitat",
@@ -19860,8 +19860,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "130"
   }, {
-    "iri" : "https://purl.org/emi#hasSex",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSex",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "404",
     "label" : {
       "IRI-based" : "hasSex",
@@ -20159,8 +20159,8 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "417"
   }, {
-    "iri" : "https://purl.org/emi#hasSpectralScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpectralScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "295",
     "label" : {
       "IRI-based" : "hasSpectralScore",
@@ -20331,14 +20331,14 @@
     "attributes" : [ "external", "datatype" ],
     "id" : "421"
   }, {
-    "iri" : "https://purl.org/emi#hasFBMNComponent",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasFBMNComponent",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "341",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasFBMNComponent :VGF153_A02_fbmn_neg_componentindex_0 .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasFBMNComponent :VGF153_A02_fbmn_neg_componentindex_0 .",
         "type" : "label"
       } ]
     },
@@ -20435,14 +20435,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "398"
   }, {
-    "iri" : "https://purl.org/emi#hasPathway",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasPathway",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "139",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasPathway npc:TERPENOIDS .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n@prefix npc: <https://purl.org/npc#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasPathway npc:TERPENOIDS .",
         "type" : "label"
       } ]
     },
@@ -20455,8 +20455,8 @@
     "attributes" : [ "object" ],
     "id" : "388"
   }, {
-    "iri" : "https://purl.org/emi#hasMassDifference",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasMassDifference",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "327",
     "label" : {
       "IRI-based" : "hasMassDifference",
@@ -20548,7 +20548,7 @@
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n:VGF153_A02_neg.mzXML  rdf:type emi:LCMSAnalysisNeg, emi:LCMSAnalysis, sosa:Observation ;\n                       sosa:hasResult :VGF153_A02_lcms_feature_list_neg .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet.",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n@prefix sosa: <http://www.w3.org/ns/sosa/> .\n:VGF153_A02_neg.mzXML  rdf:type emi:LCMSAnalysisNeg, emi:LCMSAnalysis, sosa:Observation ;\n                       sosa:hasResult :VGF153_A02_lcms_feature_list_neg .\n:VGF153_A02_lcms_feature_list_neg rdf:type emi:LCMSFeatureSet.",
         "type" : "label"
       } ]
     },
@@ -20564,14 +20564,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "336"
   }, {
-    "iri" : "https://purl.org/emi#hasPathwayProbability",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasPathwayProbability",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "314",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasPathwayProbability \"0.5601769685745239\"^^xsd:double .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasPathwayProbability \"0.5601769685745239\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -20806,8 +20806,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "435"
   }, {
-    "iri" : "https://purl.org/emi#hasAdduct",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasAdduct",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "272",
     "label" : {
       "IRI-based" : "hasAdduct",
@@ -20822,8 +20822,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "437"
   }, {
-    "iri" : "https://purl.org/emi#hasFirstMember",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasFirstMember",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "21",
     "label" : {
       "IRI-based" : "hasFirstMember",
@@ -20842,14 +20842,14 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "438"
   }, {
-    "iri" : "https://purl.org/emi#hasScore",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasScore",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "334",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecValue \"271.02\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecValue \"271.02\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -21014,8 +21014,8 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "451"
   }, {
-    "iri" : "https://purl.org/emi#inChIKey",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#inChIKey",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "356",
     "label" : {
       "IRI-based" : "inChIKey",
@@ -21112,8 +21112,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "352"
   }, {
-    "iri" : "https://purl.org/emi#hasSecondMember",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSecondMember",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "21",
     "label" : {
       "IRI-based" : "hasSecondMember",
@@ -21290,14 +21290,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "402"
   }, {
-    "iri" : "https://purl.org/emi#hasRelativeFeatureArea",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasRelativeFeatureArea",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "311",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRelativeFeatureArea \"0.0004294112935902454\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasRelativeFeatureArea \"0.0004294112935902454\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -21312,14 +21312,14 @@
     "attributes" : [ "datatype" ],
     "id" : "454"
   }, {
-    "iri" : "https://purl.org/emi#hasSpec2VecLoss",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSpec2VecLoss",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "306",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix : <https://purl.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecLoss \"157.86\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix : <https://w3id.org/emi/abox#> .\n:spec2vec_doc_mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:Spec2VecDoc ;\n            emi:hasSpec2VecLoss \"157.86\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -21576,14 +21576,14 @@
     "attributes" : [ "external", "object" ],
     "id" : "399"
   }, {
-    "iri" : "https://purl.org/emi#hasSuperClassProbability",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasSuperClassProbability",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "297",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix : <https://purl.org/emi/abox#> .\n@prefix emi: <https://purl.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasSuperClassProbability \"0.34501510858535767\"^^xsd:double .",
+        "value" : "@prefix : <https://w3id.org/emi/abox#> .\n@prefix emi: <https://w3id.org/emi#> .\n:CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;\n            emi:hasSuperClassProbability \"0.34501510858535767\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -21673,14 +21673,14 @@
     "attributes" : [ "object", "anonymous" ],
     "id" : "460"
   }, {
-    "iri" : "https://purl.org/emi#hasUSI",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasUSI",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "354",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasUSI \"mzspec:MSV000087728:VGF153_A02_features_ms2_neg.mgf:scan:356\" .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasUSI \"mzspec:MSV000087728:VGF153_A02_features_ms2_neg.mgf:scan:356\" .",
         "type" : "label"
       } ]
     },
@@ -21695,14 +21695,14 @@
     "attributes" : [ "datatype", "functional" ],
     "id" : "461"
   }, {
-    "iri" : "https://purl.org/emi#hasParentMass",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasParentMass",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "315",
     "annotations" : {
       "example" : [ {
         "identifier" : "example",
         "language" : "undefined",
-        "value" : "@prefix emi: <https://purl.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasParentMass \"833.447509765625\"^^xsd:double .",
+        "value" : "@prefix emi: <https://w3id.org/emi#> .\n@prefix usi: <https://metabolomics-usi.ucsd.edu/dashinterface/?usi1=> .\nusi:mzspec%3AMSV000087728%3AVGF153_A02_features_ms2_neg.mgf%3Ascan%3A356 rdf:type emi:LCMSFeature ;\n            emi:hasParentMass \"833.447509765625\"^^xsd:double .",
         "type" : "label"
       } ]
     },
@@ -21994,8 +21994,8 @@
     "attributes" : [ "external", "object" ],
     "id" : "473"
   }, {
-    "iri" : "https://purl.org/emi#hasPhysiologicalStage",
-    "baseIri" : "https://purl.org/emi",
+    "iri" : "https://w3id.org/emi#hasPhysiologicalStage",
+    "baseIri" : "https://w3id.org/emi",
     "range" : "301",
     "label" : {
       "IRI-based" : "hasPhysiologicalStage",
