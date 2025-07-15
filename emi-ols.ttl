@@ -29,7 +29,7 @@
 @base <https://w3id.org/emi/abox#> .
 
 <https://w3id.org/emi> rdf:type owl:Ontology ;
-                        owl:versionIRI <https://w3id.org/emi/version/0.3> ;
+                        owl:versionIRI <https://w3id.org/emi/version/1.0> ;
                         owl:imports <http://www.w3.org/2004/02/skos/core> ,
                                     <http://www.w3.org/ns/prov-o-20130430> ,
                                     sosa: ,
@@ -51,9 +51,9 @@
                         dcterms:description "The Earth Metabolome Initiative (EMI) ontology is designed to capture and structure the metabolic content of all currently known species on our planet."@en ;
                         dcterms:issue "2024-04-03"^^xsd:date ;
                         dcterms:license <https://creativecommons.org/publicdomain/zero/1.0> ;
-                        dcterms:modified "2025-07-01"^^xsd:date ;
+                        dcterms:modified "2025-07-15"^^xsd:date ;
                         dcterms:publisher <https://www.earthmetabolome.org> ;
-                        dcterms:replaces <https://enpkg.commons-lab.org/kg/ontology_version/0.1.0> ;
+                        dcterms:replaces <https://purl.org/emi/version/0.3> ;
                         dcterms:title "The Earth Metabolome Initiative (EMI) ontology"@en ;
                         bibo:status <http://purl.org/ontology/bibo/status/draft> ;
                         vann:preferredNamespacePrefix "emi" ;
@@ -63,7 +63,7 @@
                         rdfs:seeAlso <https://bioschemas.org> ,
                                      <https://schema.org> ,
                                      <https://enpkg.commons-lab.org/doc/index.html> ;
-                        owl:versionInfo "0.3" ;
+                        owl:versionInfo "1.0" ;
                         foaf:logo <https://www.earthmetabolome.org/earth_metabolome_ontology/images/logo.png> ;
                         widoco:introduction """The Earth Metabolome Initiative (EMI) ontology replaces the Experimental Natural Products Knowledge Graph [(ENPKG) vocabulary]( https://enpkg.commons-lab.org/doc/index.html). The EMI ontology is used to structure spectrum annotation provenance by reusing the [PROV-O ontology](https://www.w3.org/TR/prov-o/) (a W3C recommendation) and sample and observation data by applying the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/). EMI reuses the SOSA ontology as a data schema for struturing the Sample and Observation data. SOSA (Sensor, Observation, Sample, and Actuator) is a subset of SSN (Semantic Sensor Network Ontology) that is a W3C recommendation. Although, the SSN was developed with ontology engineers in mind as the primary audience. They addressed changes in scope and audience that currently also includes scientific observations that may make heavy use of sampling strategies, and, therefore, the Sampling, Sampler, and Sample classes, as well as their corresponding properties, have been added to SOSA and SSN. Chemical taxonomy is also highly structure in EMI by relying on a taxonomy derived from NPClassifier (i.e., EMI imports [Natural Product Classifier vocabulary](https://w3id.org/emi/npc)). This taxonomy was defined for EMI with the [SKOS vocabulary](https://www.w3.org/TR/skos-reference). Indeed, it is an SKOS-based vocabulary for the structural classification of natural products. The skos:broder term is used to represent the hierarchy among Classes, Superclasses and Pathways.  npc:Class, npc:Superclass and npc:Pathway are subclasses of skos:Concept. rdfs:label is assigned for each term of the taxonomy that are instances of one of the subclasses of skos:Concept.
 
