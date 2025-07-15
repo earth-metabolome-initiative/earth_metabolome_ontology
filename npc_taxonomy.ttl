@@ -1,5 +1,5 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -10,13 +10,13 @@
 @prefix sw: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 
-<https://purl.org/npc> a owl:Ontology,
+<https://w3id.org/emi/npc> a owl:Ontology,
         skos:ConceptScheme ;
     dcterms:creator <https://orcid.org/0000-0002-3175-5372> ;
     dcterms:description "A natural product taxonomy derived from the NPClassifier tool." ;
     dcterms:title "The natural product taxonomy." ;
     vann:preferredNamespacePrefix "npc" ;
-    vann:preferredNamespaceUri "https://purl.org/npc#" ;
+    vann:preferredNamespaceUri "https://w3id.org/emi/npc#" ;
     owl:imports skos: ;
     owl:versionInfo "0.1" ;
     dcterms:modified "2024-05-21"^^xsd:date ;
@@ -481,7 +481,7 @@ npc:CARANE_MONOTERPENOIDS a npc:Class ;
 
 npc:CARBAPENEMS a npc:Class ;
     rdfs:label "Carbapenems" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:CARBAZOLE_ALKALOIDS a npc:Class ;
     rdfs:label "Carbazole alkaloids" ;
@@ -641,7 +641,7 @@ npc:CEMBRANE_DITERPENOIDS a npc:Class ;
 
 npc:CEPHALOSPORINS a npc:Class ;
     rdfs:label "Cephalosporins" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:CEPHALOTAXUS_ALKALOIDS a npc:Class ;
     rdfs:label "Cephalotaxus alkaloids" ;
@@ -649,7 +649,7 @@ npc:CEPHALOTAXUS_ALKALOIDS a npc:Class ;
 
 npc:CEPHAMYCINS a npc:Class ;
     rdfs:label "Cephamycins" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:CERAMIDES a npc:Class ;
     rdfs:label "Ceramides" ;
@@ -701,7 +701,7 @@ npc:CINNAMOYL_PHENOLS a npc:Class ;
 
 npc:CLAVAMS a npc:Class ;
     rdfs:label "Clavams" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:CLAVULONES a npc:Class ;
     rdfs:label "Clavulones" ;
@@ -1736,7 +1736,7 @@ npc:MONOCARBOCYCLIC_SESTERTERPENOIDS a npc:Class ;
 
 npc:MONOCYCLIC_%CE%92-LACTAMS a npc:Class ;
     rdfs:label "Monocyclic β-lactams" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:MONOCYCLIC_GUANIDINE_ALKALOIDS a npc:Class ;
     rdfs:label "Monocyclic guanidine alkaloids" ;
@@ -2004,7 +2004,7 @@ npc:PAULOMYCINS_AND_DERIVATIVES a npc:Class ;
 
 npc:PENICILLINS a npc:Class ;
     rdfs:label "Penicillins" ;
-    skos:broader <https://purl.org/npc#%CE%92-LACTAMS> .
+    skos:broader <https://w3id.org/emi/npc#%CE%92-LACTAMS> .
 
 npc:PENTACYCLIC_GUANIDINE_ALKALOIDS a npc:Class ;
     rdfs:label "Pentacyclic guanidine alkaloids" ;
@@ -2374,7 +2374,7 @@ npc:SACCULATANE_DITERPENOIDS a npc:Class ;
 
 npc:SALINOSPORAMIDES a npc:Class ;
     rdfs:label "Salinosporamides" ;
-    skos:broader <https://purl.org/npc#%CE%93-LACTAM-%CE%92-LACTONES> .
+    skos:broader <https://w3id.org/emi/npc#%CE%93-LACTAM-%CE%92-LACTONES> .
 
 npc:SANTALANE_SESQUITERPENOIDS a npc:Class ;
     rdfs:label "Santalane sesquiterpenoids" ;
@@ -2795,7 +2795,7 @@ npc:ZIZAANE_SESQUITERPENOIDS a npc:Class ;
     rdfs:label "Zizaane sesquiterpenoids" ;
     skos:broader npc:SESQUITERPENOIDS .
 
-<https://purl.org/npc#%CE%93-LACTAM-%CE%92-LACTONES> a npc:Superclass ;
+<https://w3id.org/emi/npc#%CE%93-LACTAM-%CE%92-LACTONES> a npc:Superclass ;
     rdfs:label "γ-lactam-β-lactones" ;
     skos:broader npc:AMINO_ACIDS_AND_PEPTIDES .
 
@@ -2987,7 +2987,7 @@ npc:SPINGOLIPIDS a npc:Superclass ;
     rdfs:label "Spingolipids" ;
     skos:broader npc:FATTY_ACIDS .
 
-<https://purl.org/npc#%CE%92-LACTAMS> a npc:Superclass ;
+<https://w3id.org/emi/npc#%CE%92-LACTAMS> a npc:Superclass ;
     rdfs:label "β-lactams" ;
     skos:broader npc:AMINO_ACIDS_AND_PEPTIDES .
 
