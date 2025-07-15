@@ -3,7 +3,7 @@
 @prefix up: <http://purl.uniprot.org/core/> .
 @prefix wd: <http://www.wikidata.org/entity/> .
 @prefix emi: <https://w3id.org/emi#> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -29,11 +29,11 @@
 @base <https://w3id.org/emi/abox#> .
 
 <https://w3id.org/emi> rdf:type owl:Ontology ;
-                        owl:versionIRI <https://w3id.org/emi/version/0.3> ;
+                        owl:versionIRI <https://w3id.org/emi/version/1.0> ;
                         owl:imports <http://www.w3.org/2004/02/skos/core> ,
                                     <http://www.w3.org/ns/prov-o-20130430> ,
                                     sosa: ,
-                                    <https://purl.org/npc> ,
+                                    <https://w3id.org/emi/npc> ,
                                     dcterms: ,
                                     geo: ,
                                     qudt: ;
@@ -52,9 +52,9 @@
                         dcterms:description "The Earth Metabolome Initiative (EMI) ontology is designed to capture and structure the metabolic content of all currently known species on our planet."@en ;
                         dcterms:issue "2024-04-03"^^xsd:date ;
                         dcterms:license <https://creativecommons.org/publicdomain/zero/1.0> ;
-                        dcterms:modified "2025-07-01"^^xsd:date ;
+                        dcterms:modified "2025-07-15"^^xsd:date ;
                         dcterms:publisher <https://www.earthmetabolome.org> ;
-                        dcterms:replaces <https://enpkg.commons-lab.org/kg/ontology_version/0.1.0> ;
+                        dcterms:replaces <https://purl.org/emi/version/0.3> ;
                         dcterms:title "The Earth Metabolome Initiative (EMI) ontology"@en ;
                         bibo:status <http://purl.org/ontology/bibo/status/draft> ;
                         vann:preferredNamespacePrefix "emi" ;
@@ -64,9 +64,9 @@
                         rdfs:seeAlso <https://bioschemas.org> ,
                                      <https://schema.org> ,
                                      <https://enpkg.commons-lab.org/doc/index.html> ;
-                        owl:versionInfo "0.3" ;
+                        owl:versionInfo "1.0" ;
                         foaf:logo <https://www.earthmetabolome.org/earth_metabolome_ontology/images/logo.png> ;
-                        widoco:introduction """The Earth Metabolome Initiative (EMI) ontology replaces the Experimental Natural Products Knowledge Graph [(ENPKG) vocabulary]( https://enpkg.commons-lab.org/doc/index.html). The EMI ontology is used to structure spectrum annotation provenance by reusing the [PROV-O ontology](https://www.w3.org/TR/prov-o/) (a W3C recommendation) and sample and observation data by applying the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/). EMI reuses the SOSA ontology as a data schema for struturing the Sample and Observation data. SOSA (Sensor, Observation, Sample, and Actuator) is a subset of SSN (Semantic Sensor Network Ontology) that is a W3C recommendation. Although, the SSN was developed with ontology engineers in mind as the primary audience. They addressed changes in scope and audience that currently also includes scientific observations that may make heavy use of sampling strategies, and, therefore, the Sampling, Sampler, and Sample classes, as well as their corresponding properties, have been added to SOSA and SSN. Chemical taxonomy is also highly structure in EMI by relying on a taxonomy derived from NPClassifier (i.e., EMI imports [Natural Product Classifier vocabulary](https://purl.org/npc)). This taxonomy was defined for EMI with the [SKOS vocabulary](https://www.w3.org/TR/skos-reference). Indeed, it is an SKOS-based vocabulary for the structural classification of natural products. The skos:broder term is used to represent the hierarchy among Classes, Superclasses and Pathways.  npc:Class, npc:Superclass and npc:Pathway are subclasses of skos:Concept. rdfs:label is assigned for each term of the taxonomy that are instances of one of the subclasses of skos:Concept.
+                        widoco:introduction """The Earth Metabolome Initiative (EMI) ontology replaces the Experimental Natural Products Knowledge Graph [(ENPKG) vocabulary]( https://enpkg.commons-lab.org/doc/index.html). The EMI ontology is used to structure spectrum annotation provenance by reusing the [PROV-O ontology](https://www.w3.org/TR/prov-o/) (a W3C recommendation) and sample and observation data by applying the [SOSA ontology](https://www.w3.org/TR/vocab-ssn/). EMI reuses the SOSA ontology as a data schema for struturing the Sample and Observation data. SOSA (Sensor, Observation, Sample, and Actuator) is a subset of SSN (Semantic Sensor Network Ontology) that is a W3C recommendation. Although, the SSN was developed with ontology engineers in mind as the primary audience. They addressed changes in scope and audience that currently also includes scientific observations that may make heavy use of sampling strategies, and, therefore, the Sampling, Sampler, and Sample classes, as well as their corresponding properties, have been added to SOSA and SSN. Chemical taxonomy is also highly structure in EMI by relying on a taxonomy derived from NPClassifier (i.e., EMI imports [Natural Product Classifier vocabulary](https://w3id.org/emi/npc)). This taxonomy was defined for EMI with the [SKOS vocabulary](https://www.w3.org/TR/skos-reference). Indeed, it is an SKOS-based vocabulary for the structural classification of natural products. The skos:broder term is used to represent the hierarchy among Classes, Superclasses and Pathways.  npc:Class, npc:Superclass and npc:Pathway are subclasses of skos:Concept. rdfs:label is assigned for each term of the taxonomy that are instances of one of the subclasses of skos:Concept.
 
 SOSA reuse. We consider a Mass Spectrometer as a sosa:Platform. The MS detector that belongs to a Mass Spectrometer is a Sensor. If we do not want to capture the equipment (Mass Spectrometer for provenance) of the generated analysis such as by Liquid chromatography–mass spectrometry (LCMS), we can ignore/ommit it. The observation is interpreted as a prov:Activity/sosa:Observation/emi:Analysis (the Analysis as defined in the Earth Metabolome Intiative model). This observation (a.k.a. LCMS Analysis) uses (prov:use/sosa:hasFeatureOfInterest) some sample. This sample comes from some emi:System (e.g., species or another sample like a Raw Material, a broader specimen). All EMI model classes related to samples are subclasses of sosa:Sample, notably emi:Aliquot, emi:Blank, emi:ExtractSample, emi:RawMaterial and emi:QCSample.
 
@@ -265,7 +265,7 @@ emi:hasClass rdf:type owl:ObjectProperty ;
              owl:propertyDisjointWith emi:hasSuperClass ;
              vann:example """@prefix : <https://w3id.org/emi/abox#> .
 @prefix emi: <https://w3id.org/emi#> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 :CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;
             emi:hasClass \"npc:CADINANE_SESQUITERPENOIDS\" .""" ;
              rdfs:label "has class" .
@@ -423,7 +423,7 @@ emi:hasPathway rdf:type owl:ObjectProperty ;
                rdfs:range npc:Pathway ;
                vann:example """@prefix emi: <https://w3id.org/emi#> .
 @prefix : <https://w3id.org/emi/abox#> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 :CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;
             emi:hasPathway npc:TERPENOIDS .""" ;
                rdfs:label "has pathway" .
@@ -494,7 +494,7 @@ emi:hasSuperClass rdf:type owl:ObjectProperty ;
                   rdfs:range npc:Superclass ;
                   vann:example """@prefix emi: <https://w3id.org/emi#> .
 @prefix : <https://w3id.org/emi/abox#> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 :CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;
             emi:hasSuperClass npc:SESQUITERPENOIDS .""" ;
                   rdfs:label "has super class" .
@@ -543,7 +543,7 @@ emi:inTaxon rdf:type owl:ObjectProperty ;
 emi:isClassifiedWith rdf:type owl:ObjectProperty ;
                      vann:example """@prefix : <https://w3id.org/emi/abox#> .
 @prefix emi: <https://w3id.org/emi#> .
-@prefix npc: <https://purl.org/npc#> .
+@prefix npc: <https://w3id.org/emi/npc#> .
 :CANOPUS-mzspec%3AMSV000087728%3AVGF147_E06_features_ms2_neg.mgf%3Ascan%3A45 rdf:type emi:ChemicalTaxonAnnotation ;
             emi:isClassifiedWith npc:CADINANE_SESQUITERPENOIDS .""" ;
                      rdfs:comment "It is used to classify any individidual with an external controlled-vocabulary in case rdf:type is not the most suitable solution." ;
@@ -1051,7 +1051,7 @@ emi:ChemicalStructure rdf:type owl:Class ;
 ###  https://w3id.org/emi#ChemicalTaxon
 emi:ChemicalTaxon rdf:type owl:Class ;
                   rdfs:subClassOf emi:ChemicalEntity ;
-                  rdfs:comment "As a taxonomy for chemicals such as natural products, we recommend to use the taxonomy derived from NPClassifier (i.e., https://purl.org/npc)." ;
+                  rdfs:comment "As a taxonomy for chemicals such as natural products, we recommend to use the taxonomy derived from NPClassifier (i.e., https://w3id.org/emi/npc)." ;
                   rdfs:label "Chemical taxon" .
 
 
@@ -1423,7 +1423,7 @@ emi:WDChemicalStructure rdf:type owl:Class ;
 #         owl:deprecated "delete?" .
 
 
-###  https://purl.org/npc#Class
+###  https://w3id.org/emi/npc#Class
 npc:Class rdf:type owl:Class ;
           rdfs:subClassOf skos:Concept ,
                           emi:ChemicalTaxon ,
@@ -1440,7 +1440,7 @@ npc:Class rdf:type owl:Class ;
           rdfs:label "Natural product class" .
 
 
-###  https://purl.org/npc#Pathway
+###  https://w3id.org/emi/npc#Pathway
 npc:Pathway rdf:type owl:Class ;
             rdfs:subClassOf skos:Concept ,
                             emi:ChemicalTaxon ;
@@ -1453,7 +1453,7 @@ npc:Pathway rdf:type owl:Class ;
             rdfs:label "Natural product pathway" .
 
 
-###  https://purl.org/npc#Superclass
+###  https://w3id.org/emi/npc#Superclass
 npc:Superclass rdf:type owl:Class ;
                rdfs:subClassOf skos:Concept ,
                                emi:ChemicalTaxon ,
