@@ -1,10 +1,10 @@
 [PrefixDeclaration]
-:		https://purl.org/emi/abox#
+:		https://w3id.org/emi/abox#
 sw:		http://www.w3.org/2003/06/sw-vocab-status/ns#
 up:		http://purl.uniprot.org/core/
 wd:		http://www.wikidata.org/entity/
-emi:		https://purl.org/emi#
-npc:		https://purl.org/npc#
+emi:		https://w3id.org/emi#
+npc:		https://w3id.org/emi/npc#
 org:		http://www.w3.org/ns/org#
 owl:		http://www.w3.org/2002/07/owl#
 rdf:		http://www.w3.org/1999/02/22-rdf-syntax-ns#
