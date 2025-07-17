@@ -10,12 +10,12 @@
 ## Natural Product taxonomy
 The Natural Product (NP) taxonomy is an SKOS-based OWL ontology for the structural classification of natural products derived from the [NPClassifier tool](https://pubs.acs.org/doi/10.1021/acs.jnatprod.1c00399). This OWL ontology was generated with the script in [`scripts`](scripts/natural_product_taxonomy).
 
-🌳 Latest version URL: https://w3id.org/emi/npc .
+🌳 Latest version URL: https://w3id.org/emi/npc.
 
 📖 For more details, see the taxonomy [root class](https://w3id.org/emi#ChemicalTaxon).
 
 ## Example of a knowledge graph using the EMI ontology
-A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917) and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 413 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). The SPARQL endpoint for programatic access is [https://qlever.earthmetabolome.org/metrin-kg](https://qlever.earthmetabolome.org/api/metrin-kg). The RDF dump is available at https://zenodo.org/records/15689187. 
+A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://qlever.earthmetabolome.org/metrin-kg. The SPARQL endpoint for programatic access is https://qlever.earthmetabolome.org/api/metrin-kg. The RDF dump is available at https://zenodo.org/records/15689187. 
 
 # Tutorial to generate RDF triples based on the EMI ontology
 
