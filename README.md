@@ -1,20 +1,21 @@
 # Earth Metabolome Ontology
-The latest and official version of the Earth Metabolome Initiative (EMI) ontology is available in [`emi.ttl`](emi.ttl) that can replace the enpkg vocabulary, for example. 
+🚀 The latest and official version is available at https://w3id.org/emi.
 
-**Any ontology issue, change or suggestion should be reported based on the [`emi.ttl`](emi.ttl) file**. The ontology documentation, other ontology files in the [docs](/docs) folder and [ontop_config](/ontop_config), and the [emi_no_import.ttl](emi_no_import.ttl) file are generated based on the [`emi.ttl`](emi.ttl) file. The  [emi_no_import.ttl](emi_no_import.ttl) is the same as [`emi.ttl`](emi.ttl) without imported ontologies. [emi-ols.ttl](emi-ols.ttl) is used by the EBI [Ontology Lookup Service](https://www.ebi.ac.uk/ols4/ontologies/emi) and ignores the [quadt ontology](http://qudt.org/schema/qudt/) import (see [issue](https://github.com/EBISPOT/ols4/issues/814)).
+📝 To open and edit the ontology, we suggest to use any text or ontology editor such as [Protege](https://protege.stanford.edu). 
 
-To open and edit the ontology, it can be done  with a text editor or an ontology editor such as [Protege](https://protege.stanford.edu). 
+📚 [EMI ontology documentation](https://www.earthmetabolome.org/earth_metabolome_ontology/). The ontology documentation is fully generated with the [WIDOCO tool](https://github.com/dgarijo/Widoco). The WIDOCO-generated files are in the [docs](/docs) folder.
 
-For more details, see the [EMI ontology documentation](https://www.earthmetabolome.org/earth_metabolome_ontology/). The ontology documentation is fully generated with the [WIDOCO tool](https://github.com/dgarijo/Widoco). The WIDOCO-generated files are in the [docs](/docs) folder.
-
+⚠️ Any ontology issue, change or suggestion should be reported based on the [`emi.ttl`](emi.ttl) file. The ontology documentation, other ontology files in the [docs](/docs) and [ontop_config](/ontop_config) folders, and the [emi_no_import.ttl](emi_no_import.ttl) file are generated based on the [`emi.ttl`](emi.ttl) file. The  [emi_no_import.ttl](emi_no_import.ttl) is the same as [`emi.ttl`](emi.ttl) without imported ontologies. [emi-ols.ttl](emi-ols.ttl) is used by the EBI [Ontology Lookup Service](https://www.ebi.ac.uk/ols4/ontologies/emi) and ignores the [quadt ontology](http://qudt.org/schema/qudt/) import (see [issue](https://github.com/EBISPOT/ols4/issues/814)).
 
 ## Natural Product taxonomy
-The [`npc_taxonomy.ttl`](npc_taxonomy.ttl) file is an SKOS-based OWL ontology for the structural classification of natural products derived from the [NPClassifier tool](https://pubs.acs.org/doi/10.1021/acs.jnatprod.1c00399). This OWL ontology was generated with the script in [`scripts`](scripts/natural_product_taxonomy).
+The Natural Product (NP) taxonomy is an SKOS-based OWL ontology for the structural classification of natural products derived from the [NPClassifier tool](https://pubs.acs.org/doi/10.1021/acs.jnatprod.1c00399). This OWL ontology was generated with the script in [`scripts`](scripts/natural_product_taxonomy).
 
-For more details, see [Natural Product Classifier vocabulary](https://www.earthmetabolome.org/earth_metabolome_ontology/docs-npc/index-en.html).
+🌳 Latest version URL: https://w3id.org/emi/npc .
+
+📖 For more details, see the taxonomy [root class](https://w3id.org/emi#ChemicalTaxon).
 
 ## Example of a knowledge graph using the EMI ontology
-A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917) and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 413 million triples and is queryable with the SPARQL query editor (soon available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi)). The SPARQL endpoint for programatic access is [https://biosoda.unil.ch/emi/sparql](https://biosoda.unil.ch/emi/sparql) (note that soon the stable URI will be  https://sparql.earthmetabolome.org). The RDF dump is available at https://zenodo.org/records/15211270. 
+A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917) and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 413 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). The SPARQL endpoint for programatic access is [https://qlever.earthmetabolome.org/metrin-kg](https://qlever.earthmetabolome.org/api/metrin-kg). The RDF dump is available at https://zenodo.org/records/15689187. 
 
 # Tutorial to generate RDF triples based on the EMI ontology
 
@@ -116,7 +117,7 @@ We recommend to download the version mysql-connector-j-8.2.0.jar from the MySQL 
 https://downloads.mysql.com/archives/c-j/
 
 - Move the mysql-connector-j-8.2.0.jar to the `ontop-cli-5.1.1/lib` folder
-- Create ontop properties text file `./ontop_config/emi-v0_2/emi-v0_2.properties` such as the example below (change the user, password, and, if necessary, the url parameter too)
+- Create ontop properties text file `./ontop_config/emi-v1/emi-v1.properties` such as the example below (change the user, password, and, if necessary, the url parameter too)
 
 ```
 jdbc.password=root
@@ -129,7 +130,7 @@ ontop.inferDefaultDatatype=True
 
 - Run the ontop command line tool with the command below in the current directory. Please refer to the right path to the ontop tool 
 ```bash
-PATH/TO/ontop-cli-5.1.1/ontop materialize -m ./ontop_config//emi-v0_2/emi-v0_2.obda -t ./ontop_config/emi-v0_2/emi-v0_2.ttl -p ./ontop_config/emi-v0_2/emi-v0_2.properties -f turtle --enable-annotations  --separate-files -o ./data/ontop
+PATH/TO/ontop-cli-5.1.1/ontop materialize -m ./ontop_config/emi-v1/emi-v1.obda -t ./ontop_config/emi-v1/emi-v1.ttl -p ./ontop_config/emi-v1/emi-v1.properties -f turtle --enable-annotations  --separate-files -o ./data/ontop
 ```
 > **_NOTE:_**  you can allocated more memory to run ontop by editing the PATH/TO/ontop-cli-5.1.1/ontop file. For intance, `ONTOP_JAVA_ARGS="-Xmx16g"` instead of `ONTOP_JAVA_ARGS="-Xmx1g"`
 > **_NOTE:_** If necessary you may need to specify the classpath for the mysql-connector-java .jar
@@ -148,7 +149,7 @@ For [Virtuoso](https://vos.openlinksw.com/owiki/wiki/VOS#2024-02-13%3A%20Virtuos
 
 Ontop allow us to build vitual knowledge graphs. With its plugin for Protege, we can query the VKG for more information see the section [Setting up the VKG using Ontop-Protégé](https://github.com/ontop/ontop-patterns-tutorial/blob/main/README.md#setting-up-the-vkg-using-ontop-protégé). 
 
-> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v0_2/emi-v0_2.obda`, `./ontop_config/emi-v0_2/emi-v0_2.ttl` and `./ontop_config/emi-v0_2/emi-v0_2.properties`. 
+> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v0_2/emi-v1.obda`, `./ontop_config/emi-v1/emi-v1.ttl` and `./ontop_config/emi-v1/emi-v1.properties`. 
 
 A full tutorial about Ontop-Protégé is available at (https://doi.org/10.1016/j.patter.2021.100346). 
 
