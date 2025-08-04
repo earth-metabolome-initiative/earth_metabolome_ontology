@@ -107,9 +107,9 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 cd ./scripts/sql_insert_emi_data
 pipenv run python main.py
 ```
-- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter:
-```
-ionization_mode = 'neg'
+- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter: ``ionization_mode = 'neg'``
+```bash
+pipenv run python main.py
 ```
 
 > **_NOTE 2:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
