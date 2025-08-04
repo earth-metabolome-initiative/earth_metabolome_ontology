@@ -28,10 +28,10 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 6. [Interacting with the EMI virtual knowledge graph (VKG)](#interacting-with-the-emi-virtual-knowledge-graph-vkg)
 
 ## Introduction
-In this tutorial, we will use the pf1600 dataset and the structure metadata as data sources. This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
+In this tutorial, we will use the pf1600 dataset and the structures' metadata as data sources (see Zenodo links below). This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
 - Download the pf1600 dataset from [Zenodo](https://doi.org/10.5281/zenodo.10827917).
-- Download the structure_metadata (sqlite) database from [Zenodo](https://zenodo.org/records/12534675).
+- Download the structures_metadata (sqlite) database from [Zenodo](https://zenodo.org/records/12534675).
 - Download and install  
 [MySQL 8.2](https://downloads.mysql.com/archives/community/). 
 - To check, if MySQL was correctly installed 
@@ -97,7 +97,7 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 1 row in set (0,01 sec)
 ```
 ## Inserting the sample data into a MySQL database
-- Edit the scripts/sql_insert_emi_data/config.py file and make sure that the path are pointing to the correct files.
+- Edit the scripts/sql_insert_emi_data/config.py file and make sure the paths are pointing to the correct files.
 > **_NOTE 1:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
 
  
@@ -157,7 +157,7 @@ For [Virtuoso](https://vos.openlinksw.com/owiki/wiki/VOS#2024-02-13%3A%20Virtuos
 
 Ontop allow us to build vitual knowledge graphs. With its plugin for Protege, we can query the VKG for more information see the section [Setting up the VKG using Ontop-Protégé](https://github.com/ontop/ontop-patterns-tutorial/blob/main/README.md#setting-up-the-vkg-using-ontop-protégé). 
 
-> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v0_2/emi-v1.obda`, `./ontop_config/emi-v1/emi-v1.ttl` and `./ontop_config/emi-v1/emi-v1.properties`. 
+> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v1/emi-v1.obda`, `./ontop_config/emi-v1/emi-v1.ttl` and `./ontop_config/emi-v1/emi-v1.properties`. 
 
 A full tutorial about Ontop-Protégé is available at (https://doi.org/10.1016/j.patter.2021.100346). 
 
