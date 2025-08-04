@@ -30,7 +30,7 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 ## Introduction
 In this tutorial, we will use a pf1600 dataset and it requires mainly [MySQL](https://mysql.com) (version 8) and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
-- Download the pf1600 dataset from [https://github.com/enpkg/enpkg_full](https://doi.org/10.5281/zenodo.10827917).
+- Download the pf1600 dataset from [Zenodo](https://doi.org/10.5281/zenodo.10827917).
 - Download and install  
 [MySQL 8.2](https://downloads.mysql.com/archives/community/). 
 - To check, if MySQL was correctly installed 
