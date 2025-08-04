@@ -17,7 +17,7 @@ The Natural Product (NP) taxonomy is an SKOS-based OWL ontology for the structur
 ## Example of a knowledge graph using the EMI ontology
 A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://qlever.earthmetabolome.org/metrin-kg. The SPARQL endpoint for programatic access is https://qlever.earthmetabolome.org/api/metrin-kg. The RDF dump is available at https://zenodo.org/records/15689187. 
 
-# Tutorial to generate RDF triples based on the EMI ontology
+# Generating RDF triples based on the EMI ontology for the pf1600 dataset
 
 **Summary**
 1. [Introduction](#introduction)
@@ -28,9 +28,9 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 6. [Interacting with the EMI virtual knowledge graph (VKG)](#interacting-with-the-emi-virtual-knowledge-graph-vkg)
 
 ## Introduction
-In this tutorial, we will use a toy dataset and it requires mainly [MySQL](https://mysql.com) (version 8) and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
+In this tutorial, we will use a pf1600 dataset and it requires mainly [MySQL](https://mysql.com) (version 8) and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
-- Download the toy dataset from [ENPKG full](https://github.com/enpkg/enpkg_full).
+- Download the pf1600 dataset from [https://github.com/enpkg/enpkg_full](https://doi.org/10.5281/zenodo.10827917).
 - Download and install  
 [MySQL 8.2](https://downloads.mysql.com/archives/community/). 
 - To check, if MySQL was correctly installed 
@@ -98,13 +98,21 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 ```
 ## Inserting the sample data into a MySQL database
 - Edit the scripts/sql_insert_emi_data/config.py file and make sure that the path are pointing to the correct files.
-> **_NOTE:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
+> **_NOTE 1:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
+
+ 
 
 - Run the command below to intiate the insertion in the emi_db database.
 ```bash
-pipenv run python ./scripts/sql_insert_emi_data/main.py
+cd ./scripts/sql_insert_emi_data
+pipenv run python main.py
 ```
-> **_NOTE:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
+- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter:
+```
+ionization_mode = 'neg'
+```
+
+> **_NOTE 2:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
 
 > **IMPORTANT**: This tutorial was only tested with the Python 3.9 version, but it might work in any other 3.x version.
  
