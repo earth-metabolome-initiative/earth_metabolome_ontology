@@ -28,7 +28,7 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 6. [Interacting with the EMI virtual knowledge graph (VKG)](#interacting-with-the-emi-virtual-knowledge-graph-vkg)
 
 ## Introduction
-In this tutorial, we will use the pf1600 dataset and the chemical strucute metadata database as data sources. This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
+In this tutorial, we will use the pf1600 dataset and the structure metadata as data sources. This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
 - Download the pf1600 dataset from [Zenodo](https://doi.org/10.5281/zenodo.10827917).
 - Download the structure_metadata (sqlite) database from [Zenodo](https://zenodo.org/records/12534675).
