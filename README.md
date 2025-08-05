@@ -107,7 +107,7 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 cd ./scripts/sql_insert_emi_data
 pipenv run python main.py
 ```
-- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter: ``ionization_mode = 'neg'`` and to avoid inserting again thestructures_metadata, we can set the parameter: ``structure_metadata_sqlite_file = None``.
+- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter: ``ionization_mode = 'neg'`` and to avoid inserting again the structures_metadata, we can set the parameter: ``structure_metadata_sqlite_file = None``.
 
 ```bash
 pipenv run python main.py
