@@ -40,21 +40,13 @@ In this tutorial, we will use the pf1600 dataset and the structures' metadata as
 ```bash
 mysql --version
 ```
-- Install the [Pipfile](scripts/sql_insert_emi_data/Pipfile):
-```bash
-cd ./scripts/sql_insert_emi_data
-pipenv install
-```
-- If you do not have pipev, install it as shown below (see [more instructions](https://pipenv.pypa.io/en/latest/installation.html)).
-```bash
-pip install pipenv --user
-```
-- In case you have any issue connecting check https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52?permalink_comment_id=4473133
+> 💻 MacOS: in case you have any issue to run MySQL, check https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52?permalink_comment_id=4473133
+
 - From the root of this directory, create a database `emi_db` with the sql statements from raw_mysql_schema.sql into the MySQL server
 ```bash
 mysql -u root -p < ./scripts/sql_insert_emi_data/raw_mysql_schema.sql
 ```
-> **_NOTE:_** Optionally, if an `emi_db` already exists in your MySQL server and if you want to start from scratch (i.e., an empty database), you should drop it before running the `raw_mysql_schema.sql` script with the command above. Note that the data will be added in the database allowing duplicates. The command below will drop `emi_db`.
+> **_NOTE:_** Optionally, if an `emi_db` already exists in your MySQL server and if you want to start from scratch (i.e., an empty database), you should drop it before running the ``raw_mysql_schema.sql`` script with the command above. Note that the data will be added in the database allowing duplicates. The command below will drop `emi_db`.
 ```bash
 mysql -u root -p --execute="DROP DATABASE IF EXISTS emi_db ;"
 ```
@@ -99,10 +91,18 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 1 row in set (0,01 sec)
 ```
 ## Inserting the sample data into a MySQL database
+- Install the [Pipfile](scripts/sql_insert_emi_data/Pipfile):
+```bash
+cd ./scripts/sql_insert_emi_data
+pipenv install
+```
+- If you do not have pipev, install it as shown below (see [more instructions](https://pipenv.pypa.io/en/latest/installation.html)).
+```bash
+pip install pipenv --user
+```
 - Edit the scripts/sql_insert_emi_data/config.py file and make sure the paths are pointing to the correct files.
+  
 > **_NOTE 1:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
-
- 
 
 - Run the command below to intiate the insertion in the emi_db database.
 ```bash
