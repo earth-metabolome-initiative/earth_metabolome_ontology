@@ -30,6 +30,8 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 ## Introduction
 In this tutorial, we will use the pf1600 dataset and the structures' metadata as data sources (see Zenodo links below). This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
+> **IMPORTANT**: This tutorial was tested with Python 3.9 and 3.11.
+
 - Download the pf1600 dataset from [Zenodo](https://doi.org/10.5281/zenodo.10827917).
 - Download the structures_metadata (sqlite) database from [Zenodo](https://zenodo.org/records/12534675).
 - Download and install  
@@ -115,7 +117,6 @@ pipenv run python main.py
 
 > **_NOTE 2:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
 
-> **IMPORTANT**: This tutorial was only tested with the Python 3.9 version, but it might work in any other 3.x version.
  
 ## Generating the EMI-based RDF graph
 
