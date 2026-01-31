@@ -15,7 +15,7 @@ The Natural Product (NP) taxonomy is an SKOS-based OWL ontology for the structur
 📖 For more details, see the taxonomy [root class](https://w3id.org/emi#ChemicalTaxon).
 
 ## Example of a knowledge graph using the EMI ontology
-A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://qlever.earthmetabolome.org/metrin-kg. The SPARQL endpoint for programatic access is https://qlever.earthmetabolome.org/api/metrin-kg. The RDF dump is available at https://zenodo.org/records/15689187. 
+A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://kg.earthmetabolome.org/metrin. The SPARQL endpoint for programatic access is https://kg.earthmetabolome.org/metrin/api. The RDF dump is available at https://zenodo.org/records/15689187. 
 
 # Generating RDF triples based on the EMI ontology for the pf1600 dataset
 
