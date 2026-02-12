@@ -15,9 +15,9 @@ The Natural Product (NP) taxonomy is an SKOS-based OWL ontology for the structur
 📖 For more details, see the taxonomy [root class](https://w3id.org/emi#ChemicalTaxon).
 
 ## Example of a knowledge graph using the EMI ontology
-A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://qlever.earthmetabolome.org/metrin-kg. The SPARQL endpoint for programatic access is https://qlever.earthmetabolome.org/api/metrin-kg. The RDF dump is available at https://zenodo.org/records/15689187. 
+A knowledge graph was generated based on the EMI ontology with the [pf1600 dataset](https://doi.org/10.5281/zenodo.10827917), Globi, TryDB and structure metadata dataset [sqlite](https://zenodo.org/records/12534675). It contains more than 400 million triples and is queryable with the SPARQL query editor available at [https://sib-swiss.github.io/sparql-editor/emi](https://sib-swiss.github.io/sparql-editor/emi). Alternativaly, one can use https://kg.earthmetabolome.org/metrin. The SPARQL endpoint for programatic access is https://kg.earthmetabolome.org/metrin/api. The RDF dump is available at https://zenodo.org/records/15689187. 
 
-# Tutorial to generate RDF triples based on the EMI ontology
+# Generating RDF triples based on the EMI ontology for the pf1600 dataset
 
 **Summary**
 1. [Introduction](#introduction)
@@ -28,30 +28,25 @@ A knowledge graph was generated based on the EMI ontology with the [pf1600 datas
 6. [Interacting with the EMI virtual knowledge graph (VKG)](#interacting-with-the-emi-virtual-knowledge-graph-vkg)
 
 ## Introduction
-In this tutorial, we will use a toy dataset and it requires mainly [MySQL](https://mysql.com) (version 8) and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
+In this tutorial, we will use the pf1600 dataset and the structures' metadata as data sources (see Zenodo links below). This tutorial requires the following tools: the [MySQL](https://mysql.com) (version 8) database management system and [Ontop](https://ontop-vkg.org) (version 5.1 or later).
 
-- Download the toy dataset from [ENPKG full](https://github.com/enpkg/enpkg_full).
+> **IMPORTANT**: This tutorial was tested with Python 3.9 and 3.11.
+
+- Download the pf1600 dataset from [Zenodo](https://doi.org/10.5281/zenodo.10827917).
+- Download the structures_metadata (sqlite) database from [Zenodo](https://zenodo.org/records/12534675).
 - Download and install  
 [MySQL 8.2](https://downloads.mysql.com/archives/community/). 
 - To check, if MySQL was correctly installed 
 ```bash
 mysql --version
 ```
-- Install the [Pipfile](scripts/sql_insert_emi_data/Pipfile):
-```bash
-cd ./scripts/sql_insert_emi_data
-pipenv install
-```
-- If you do not have pipev, install it as shown below (see [more instructions](https://pipenv.pypa.io/en/latest/installation.html)).
-```bash
-pip install pipenv --user
-```
-- In case you have any issue connecting check https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52?permalink_comment_id=4473133
+> 💻 MacOS: in case you have any issue to run MySQL, check https://gist.github.com/zubaer-ahammed/c81c9a0e37adc1cb9a6cdc61c4190f52?permalink_comment_id=4473133
+
 - From the root of this directory, create a database `emi_db` with the sql statements from raw_mysql_schema.sql into the MySQL server
 ```bash
 mysql -u root -p < ./scripts/sql_insert_emi_data/raw_mysql_schema.sql
 ```
-> **_NOTE:_** Optionally, if an `emi_db` already exists in your MySQL server and if you want to start from scratch (i.e., an empty database), you should drop it before running the `raw_mysql_schema.sql` script with the command above. Note that the data will be added in the database allowing duplicates. The command below will drop `emi_db`.
+> **_NOTE:_** Optionally, if an `emi_db` already exists in your MySQL server and if you want to start from scratch (i.e., an empty database), you should drop it before running the ``raw_mysql_schema.sql`` script with the command above. Note that the data will be added in the database allowing duplicates. The command below will drop `emi_db`.
 ```bash
 mysql -u root -p --execute="DROP DATABASE IF EXISTS emi_db ;"
 ```
@@ -72,7 +67,6 @@ Alternatively, you can use the MYSQL Workbench to work with the emi_db database
 ```bash
 mysql-workbench
 ```
-> **_NOTE:_** We observe that the structure_metadata (sqlite) is missing. Alternatively, you can consider to download an example from https://zenodo.org/records/12534675.
 
 
 ## Allowing for insertion in mysql
@@ -97,16 +91,32 @@ mysql> SHOW VARIABLES LIKE "local_infile";
 1 row in set (0,01 sec)
 ```
 ## Inserting the sample data into a MySQL database
-- Edit the scripts/sql_insert_emi_data/config.py file and make sure that the path are pointing to the correct files.
-> **_NOTE:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
+- Install the [Pipfile](scripts/sql_insert_emi_data/Pipfile):
+```bash
+cd ./scripts/sql_insert_emi_data
+pipenv install
+```
+- If you do not have pipev, install it as shown below (see [more instructions](https://pipenv.pypa.io/en/latest/installation.html)).
+```bash
+pip install pipenv --user
+```
+- Edit the scripts/sql_insert_emi_data/config.py file and make sure the paths are pointing to the correct files.
+  
+> **_NOTE 1:_** To generate also a SKOS-based version of the Open Tree of Life download the tsv files from https://tree.opentreeoflife.org/about/taxonomy-version and include in the config.py the directory path to these files by replacing the ```None``` value with this path.
 
 - Run the command below to intiate the insertion in the emi_db database.
 ```bash
-pipenv run python ./scripts/sql_insert_emi_data/main.py
+cd ./scripts/sql_insert_emi_data
+pipenv run python main.py
 ```
-> **_NOTE:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
+- Run the script again with the negative mode by editing the  scripts/sql_insert_emi_data/config.py parameter: ``ionization_mode = 'neg'`` and to avoid inserting again the structures_metadata, we can set the parameter: ``structure_metadata_sqlite_file = None``.
 
-> **IMPORTANT**: This tutorial was only tested with the Python 3.9 version, but it might work in any other 3.x version.
+```bash
+pipenv run python main.py
+```
+
+> **_NOTE 2:_** Alternatively, you can run `python ./scripts/sql_insert_emi_data/main.py`, if you have all dependencies listed in [Pipfile](scripts/sql_insert_emi_data/Pipfile) installed in your python enviroment.
+
  
 ## Generating the EMI-based RDF graph
 
@@ -149,7 +159,7 @@ For [Virtuoso](https://vos.openlinksw.com/owiki/wiki/VOS#2024-02-13%3A%20Virtuos
 
 Ontop allow us to build vitual knowledge graphs. With its plugin for Protege, we can query the VKG for more information see the section [Setting up the VKG using Ontop-Protégé](https://github.com/ontop/ontop-patterns-tutorial/blob/main/README.md#setting-up-the-vkg-using-ontop-protégé). 
 
-> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v0_2/emi-v1.obda`, `./ontop_config/emi-v1/emi-v1.ttl` and `./ontop_config/emi-v1/emi-v1.properties`. 
+> **_NOTE:_** We recommend to download and use the [Ontop+Protege 5.1.1](https://sourceforge.net/projects/ontop4obda/files/ontop-5.1.1/ontop-protege-bundle-platform-independent-5.1.1.zip/download). To build the VKG, you will also need all configuration files used to materialize the VKG in subsection [Generating the EMI-based RDF graph](#generating-the-emi-based-rdf-graph), notably `./ontop_config/emi-v1/emi-v1.obda`, `./ontop_config/emi-v1/emi-v1.ttl` and `./ontop_config/emi-v1/emi-v1.properties`. 
 
 A full tutorial about Ontop-Protégé is available at (https://doi.org/10.1016/j.patter.2021.100346). 
 

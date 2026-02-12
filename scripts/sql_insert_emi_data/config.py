@@ -1,10 +1,17 @@
 # Raw data input file path
 raw_data_root_folder = "data/output/individual_analysis"
+
 #if an empty string or None does not consider it 
 open_tree_of_life_dir = None
+
 #if an empty string or None does not consider it
 trait_dir = None
+
+#Ionization mode can be either 'neg' (negative) or 'pos' (positive). 
+#For the pf1600 dataset, both modes exist. 
+#Run the tool twice with 'neg' and 'pos' to cover the whole dataset  
 ionization_mode = 'pos'
+
 structure_metadata_sqlite_file = "data/structures_metadata.db"
 # MySQL table mapping where values are mysql table names corresponding to the dictionary keys
 #For trait_data: tables names should be exactly the same as the file names without file extension
