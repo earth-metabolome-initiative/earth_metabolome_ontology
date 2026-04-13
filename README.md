@@ -163,3 +163,10 @@ Ontop allow us to build vitual knowledge graphs. With its plugin for Protege, we
 
 A full tutorial about Ontop-Protégé is available at (https://doi.org/10.1016/j.patter.2021.100346). 
 
+## Licensing
+
+* All source code in this repository is licensed under the MIT license.
+* All data related to ontology (`/docs` directory) is released under CC0 1.0 Universal.
+
+Unless otherwise specified, files follow the license of their directory.
+
